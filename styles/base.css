@@ -1,0 +1,48 @@
+.text-primary {
+    color: var(--slidev-theme-primary);
+}
+
+.text-variant1 {
+    color: var(--slidev-theme-variant1);
+}
+
+.text-variant2 {
+    color: var(--slidev-theme-variant2);
+}
+
+.text-variant3 {
+    color: var(--slidev-theme-variant3);
+}
+
+.text-variant4 {
+    color: var(--slidev-theme-variant4);
+}
+
+.text-variant5 {
+    color: var(--slidev-theme-variant5);
+}
+
+.background-primary {
+    background-color: var(--slidev-theme-primary);
+}
+
+.background-variant1 {
+    background-color: var(--slidev-theme-variant1);
+}
+
+.background-variant2 {
+    background-color: var(--slidev-theme-variant2);
+}
+
+.background-variant3 {
+    background-color: var(--slidev-theme-variant3);
+}
+
+.background-variant4 {
+    background-color: var(--slidev-theme-variant4);
+}
+
+.background-variant5 {
+    background-color: var(--slidev-theme-variant5);
+}
+
