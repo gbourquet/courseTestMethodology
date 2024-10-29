@@ -2,6 +2,9 @@
   "name": "com.jicay",
   "type": "module",
   "private": true,
+  "slidev": {
+    "colorSchema": "light"
+  },
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",

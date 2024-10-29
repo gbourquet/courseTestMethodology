@@ -28,6 +28,7 @@
     :nth-child(3) {
         @apply text-sm;
         flex: 4 4;
+        flex-direction: column;
     }
 }
 

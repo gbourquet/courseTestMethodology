@@ -3,14 +3,21 @@
 theme: seriph
 themeConfig:
   primary: '#5d8392'
+  primaryRGB: '93, 131, 146'
   primaryLight: '#91b8c8'
+  primaryLightRGB: '145, 184, 200'
   secondary: '#f59432'
   secondaryLight: '#ffeace'
   variant1: '#4da0a7'
+  variant1RGB: '77, 160, 167'
   variant2: '#4cbcab'
+  variant2RGB: '76, 188, 171'
   variant3: '#71d59d'
+  variant3RGB: '113, 213, 157'
   variant4: '#aeea86'
+  variant4RGB: '174, 234, 134'
   variant5: '#f9f871'
+  variant5RGB: '249, 248, 113'
 
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
@@ -67,7 +74,7 @@ level: 2
 
 <style>
     .mosaic-main {
-        display: grid;
+        display: grid !important;
         grid-gap: 100px 20px;
         list-style-type: none;
         grid-template-columns: repeat(6, 1fr);
@@ -121,10 +128,10 @@ level: 2
     .content {
         padding-top: 20px;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-around !important;
         flex-wrap: wrap;
         width: 100%;
-        gap: 50px;
+        align-items: center;
     }
     .process {
         width: 70%;

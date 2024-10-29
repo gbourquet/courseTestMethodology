@@ -139,6 +139,7 @@ level: 2
     .center {
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     .pyramid {
       width: 500px;
