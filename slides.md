@@ -103,6 +103,7 @@ level: 2
 ---
 title: Critères d'évaluation
 level: 2
+layout: content-vertical-center
 ---
 
 # Critères d'évaluation
@@ -169,6 +170,7 @@ level: 2
 ---
 title: Plan du cours
 level: 2
+layout: content-vertical-center
 ---
 
 # Plan du cours

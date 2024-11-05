@@ -7,6 +7,7 @@
 <style>
 div.squares-list {
   display: flex;
+  flex-direction: column;
   justify-content: center !important;
 }
 

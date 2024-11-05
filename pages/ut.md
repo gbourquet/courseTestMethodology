@@ -8,6 +8,7 @@ title: Tests unitaires et bonnes pratiques
 ---
 title: Qu'est-ce qu'un test unitaire ?
 level: 2
+layout: content-vertical-center
 ---
 
 # Qu'est-ce qu'un test unitaire ?
@@ -46,6 +47,7 @@ level: 2
 ---
 title: Quoi tester ?
 level: 2
+layout: content-vertical-center
 ---
 
 # Quoi tester ?
@@ -65,11 +67,12 @@ level: 2
 ---
 title: Structure d'un test (AAA)
 level: 2
+layout: two-columns-header
 ---
 
 # Structure d'un test (AAA)
 
-<div class="two-columns">
+::left::
 
 ::process-list
 
@@ -83,6 +86,8 @@ level: 2
     - Comparer le résultat du test avec ce qui était attendu
     - En cas d'échec lors de cette phase, le test est KO
       ::
+
+::right::
 
 ```kotlin {all|2-5|7-8|10-11|all}
 test("add numbers 1 and 2 should equals to 3") {
@@ -99,20 +104,14 @@ test("add numbers 1 and 2 should equals to 3") {
 }
 ```
 
-</div>
+---
+title: Test Driven Development
+level: 2
+layout: content-vertical-center
+---
 
-<style>
-.two-columns {
-   display: flex;
-  flex-direction: row !important;
-  align-items: center;
-}
+# Test Driven Development
 
-.slidev-vclick-target {
-  transition: opacity 100ms ease;
-}
-
-.slidev-vclick-hidden {
-  opacity: 0.2 !important;
-}
-</style>
+::div{class="flex flex-justify-center"}
+![TDD](/tdd.png){class="test"}
+::

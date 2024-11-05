@@ -46,10 +46,23 @@
     background-color: var(--slidev-theme-variant5);
 }
 
-.slidev-layout.default > :last-child {
+.slidev-layout.content-vertical-center {
+    display: flex;
+    flex-direction: column;
+
+    > h1 {
+        flex: 0 0;
+    }
+
+    > * {
+        flex: 1 1;
+    }
+}
+
+/*.slidev-layout.content-vertical-center > :last-child {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 3.5em;
-}
+}*/

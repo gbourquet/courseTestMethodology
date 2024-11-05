@@ -8,89 +8,71 @@ title: Introduction aux tests logiciels
 ---
 title: Qu'est-ce qu'un test ?
 level: 2
+layout: content-vertical-center
 ---
 
 # Qu'est-ce qu'un test ?
 
-<ul class="main-header-list">
-    <li class="item-header-list"><div>Objectifs des tests logiciels</div>
-        <ul>
-            <li>Garantir la qualité et la fiabilité des logiciels.</li>
-            <li>Détecter les bugs et les problèmes avant qu'ils n'atteignent les utilisateurs.</li>
-            <li>Assurer la conformité aux spécifications et aux exigences.</li>
-        </ul>
-    </li>
-    <li class="item-header-list"><div>Rôle essentiel des tests dans le développement</div>
-        <ul>
-            <li>Les tests ne sont pas une étape optionnelle, mais un processus intégré.</li>
-            <li>Éviter les perturbations majeures et coûteuses en cours de développement.</li>
-            <li>Contribuer à une itération plus rapide et plus efficace du cycle de développement.</li>
-        </ul>
-    </li>
-    <li class="item-header-list"><div>Garantie de la qualité et de la fiabilité</div>
-        <ul>
-            <li>Les tests renforcent la confiance des utilisateurs dans le logiciel.</li>
-            <li>Réduisent les risques d'erreurs critiques et de dysfonctionnements.</li>
-            <li>Permettent des mises à jour plus fluides et des corrections plus rapides.</li>
-        </ul>
-    </li>
-</ul>
+::header-framed-list
+
+- [Objectifs des tests logiciels]
+    - Garantir la qualité et la fiabilité des logiciels.
+    - Détecter les bugs et les problèmes avant qu'ils n'atteignent les utilisateurs.
+    - Assurer la conformité aux spécifications et aux exigences.
+- [Rôle essentiel des tests dans le développement]
+    - Les tests ne sont pas une étape optionnelle, mais un processus intégré.
+    - Éviter les perturbations majeures et coûteuses en cours de développement.
+    - Contribuer à une itération plus rapide et plus efficace du cycle de développement.
+- [Garantie de la qualité et de la fiabilité]
+    - Les tests renforcent la confiance des utilisateurs dans le logiciel.
+    - Réduisent les risques d'erreurs critiques et de dysfonctionnements.
+    - Permettent des mises à jour plus fluides et des corrections plus rapides.
+
+::
 
 ---
 title: Conséquences des bugs non détectés
 level: 2
+layout: content-vertical-center
 ---
 
 # Conséquences des bugs non détectés
 
-<ul class="main-header-list">
-    <li class="item-header-list"><div>Cas historiques de bugs catastrophiques</div>
-        <ul>
-            <li>Bug de l'an 2000 (Y2K) - Perturbations dues aux années à deux chiffres.</li>
-            <li>Fusée Ariane 5 (1996) - Surcharge d'entiers, explosion en vol.</li>
-        </ul>
-    </li>
-    <li class="item-header-list"><div>Pertes financières et de réputation</div>
-        <ul>
-            <li>Exemple : Faille de sécurité Heartbleed (2014) - Vol de données, impact sur la réputation.</li>
-            <li>Impact sur la confiance des utilisateurs et les parts de marché.</li>
-        </ul>
-    </li>
-    <li class="item-header-list"><div>Importance de la détection précoce</div>
-        <ul>
-            <li>Détecter et corriger les bugs tôt réduit les coûts de correction.</li>
-            <li>Éviter les coûts associés aux rappels, aux remplacements et aux litiges.</li>
-        </ul>
-    </li>
-</ul>
+::header-framed-list
+
+- [Cas historiques de bugs catastrophiques]
+    - Bug de l'an 2000 (Y2K) - Perturbations dues aux années à deux chiffres.
+    - Fusée Ariane 5 (1996) - Surcharge d'entiers, explosion en vol.
+- [Pertes financières et de réputation]
+    - Exemple : Faille de sécurité Heartbleed (2014) - Vol de données, impact sur la réputation.
+    - Impact sur la confiance des utilisateurs et les parts de marché.
+- [Importance de la détection précoce]
+    - Détecter et corriger les bugs tôt réduit les coûts de correction.
+    - Éviter les coûts associés aux rappels, aux remplacements et aux litiges
+
+::
 
 ---
 title: Avantages des tests
 level: 2
+layout: content-vertical-center
 ---
 
 # Avantages des tests
 
-<ul class="main-header-list">
-    <li class="item-header-list"><div>Fiabilité</div>
-        <ul>
-            <li>Identifier les faiblesses du logiciel</li>
-            <li>Réduire les risques de dysfonctionnements en production</li>
-        </ul>
-    </li>
-    <li class="item-header-list"><div>Maintenance</div>
-        <ul>
-            <li>Détection précoce = réduction des coûts</li>
-            <li>Nouvelles évolutions plus simples à mettre en place</li>
-        </ul>
-    </li>
-    <li class="item-header-list"><div>Stabilité</div>
-        <ul>
-            <li>Logiciel de bonne qualité = clients satisfaits</li>
-            <li>Gain en image de marque</li>
-        </ul>
-    </li>
-</ul>
+::header-framed-list
+
+- [Fiabilité]
+    - Identifier les faiblesses du logiciel
+    - Réduire les risques de dysfonctionnements en production
+- [Maintenance]
+    - Détection précoce = réduction des coûts
+    - Nouvelles évolutions plus simples à mettre en place
+- [Stabilité]
+    - Logiciel de bonne qualité = clients satisfaits
+    - Gain en image de marque
+
+::
 
 ---
 title: Pyramide des tests
