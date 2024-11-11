@@ -180,22 +180,29 @@ layout: content-vertical-center
 ---
 src: ./pages/introduction.md
 ---
+
 ---
 src: ./pages/ut.md
 ---
+
 ---
 src: ./pages/ut-project.md
 ---
+
 ---
 src: ./pages/it.md
 ---
+
 ---
 src: ./pages/non-functional.md
 ---
+
 ---
 src: ./pages/end-to-end.md
 ---
+
 ---
 layout: end
 ---
+
 Merci de votre attention
