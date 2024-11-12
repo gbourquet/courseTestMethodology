@@ -16,6 +16,14 @@
     > * {
         flex: 1 1;
     }
+
+
+    > h1 + ul {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
 
 </style>
