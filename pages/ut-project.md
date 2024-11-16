@@ -29,7 +29,7 @@ layout: content-vertical-center
     </div>
     <div class="adapter1 square">Adapteur</div>
     <div class="adapter2 square">Adapteur</div>
-    <div class="db sqaure">BDD</div>
+    <div class="db">BDD</div>
     <div class="tierceApi">API</div>
     <Arrow x1="200" y1="228" x2="291" y2="248"/>
     <Arrow x1="200" y1="416" x2="291" y2="396"/>
@@ -586,3 +586,254 @@ layout: content-vertical-center
     }
 }
 </style>
+
+---
+title: Tests sociaux
+level: 2
+layout: content-vertical-center
+---
+
+# Tests sociaux
+
+- Teste plusieurs modules (méthodes, classes, ...) étroitement liés
+- Permet de valider une logique fonctionnelle
+- Autorise des refactorisations plus profondes
+- À utiliser pour tester la partie purement fonctionnelle du code
+- N'exclut pas les tests unitaires solitaires dans le cas de règles spécifiques complexes
+
+---
+title: CI/CD
+level: 2
+layout: content-vertical-center
+---
+
+# CI/CD
+
+::header-framed-list
+
+- [CI = Continuous Integration]
+    - Ensemble des commandes exécutées à chaque publication sur le repository de code
+        - Exécutions des tests isolés
+        - Exécutions de job de validation de qualité
+- [CD = Continuous Deployment]
+    - Ensemble de commandes pour déployer l'application sur différents environnements
+        - Déploiments
+        - Exécutions des tests nécessitant un environnement réel
+
+::
+
+---
+title: GitHub Actions
+level: 2
+layout: content-vertical-center
+---
+
+# GitHub Actions
+
+- CI/CD intégrée à GitHub
+- Définition des pipelines à partir de fichier YAML intégrés au projet
+- Possibilité d'afficher des rapports générés au format Markdown
+
+![GitHub Actions](/ut-project/githubActions.png)
+
+---
+title: Couverture de code
+level: 2
+layout: content-vertical-center
+---
+
+# Couverture de code
+
+- Mesure le pourcentage de lignes utilisées lors de l'exécution des tests
+- Les rapports comprennent :
+    - Le pourcentage de couverture de ligne
+    - Le pourcentage de couverture de méthodes/fonctions
+    - Le pourcentage de couverture de branches
+- On définit sourcent un niveau de couverture de code minimum sur un projet
+- <mdi-alert class="text-red-6 text-2xl"/> Une couverture à 100% n'est pas synonyme d'un code correctement testé
+
+---
+title: JaCoCo
+level: 2
+layout: content-vertical-center
+---
+
+# JaCoCo
+
+- Plugin gradle utilisé pour mesurer la couverture de code
+- Fournit un rapport HTML détaillé
+- Intégrable facile dans GitHub Action pour afficher son rapport
+
+::div{style="display: flex; justify-content: space-around; align-items: center;"}
+![Rapport HTML JaCoco](/ut-project/jacocoHtml.png){style="width: 70%"}
+![Rapport GitHub Actions JaCoco](/ut-project/jacocoGithub.png){style="width: 30%"}
+::
+
+
+---
+title: Mutation tests
+level: 2
+layout: content-vertical-center
+---
+
+# Mutation tests
+
+- Change le code source (= mutations) et exécute les tests :
+    - Si les tests passent toujours, on parle de mutant survivant -> tests insuffisants
+    - Si les tests échouent, on parle de mutant tué -> tests suffisants
+- De nombreuses mutations possibles :
+    - Modifier la valeur d'une constante
+    - Remplacer un opérateur (changer un > en < ou >= par exemple)
+    - Supprimer une instruction
+    - ...
+- Assez gourmand en ressources et plus long
+
+---
+title: Mutation tests - cas d'usage
+level: 2
+layout: two-columns-header
+---
+
+# Mutation tests : cas d'usage
+
+::left::
+
+::div
+
+```kotlin 
+class UserMutation(private val age: Int) {
+    fun isLawfulAge(): Boolean {
+        return age >= LAWFUL_AGE
+    }
+
+    companion object {
+        const val LAWFUL_AGE = 18
+    }
+}
+```
+
+- Mutant survivant : Si on change le `>=`en `==`, les tests sont toujours OK
+- Mutant tué : Si on change `LAWFUL_AGE = 18` en `LAWFUL_AGE = 17`, le second test devient KO
+
+::
+
+::right::
+
+```kotlin 
+class UserMutationTest : FunSpec({
+
+    test("is lawful age") {
+        val userMutation = UserMutation(18)
+
+        val isLawfulAge = userMutation.isLawfulAge()
+
+        isLawfulAge shouldBe true
+    }
+
+    test("is under age") {
+        val userMutation = UserMutation(17)
+
+        val isLawfulAge = userMutation.isLawfulAge()
+
+        isLawfulAge shouldBe false
+    }
+})
+```
+
+---
+title: Mutation tests - PI Test
+level: 2
+layout: content-vertical-center
+---
+
+# Mutation tests : PI Test
+
+- Plugin gradle utilisé pour exécuter les tests de mutation
+- Permet de paramétrer quels types de mutation on souhaite pour notre projet
+- Fournit un rapport HTML détaillé
+
+![Mutation test](/ut-project/mutation.png)
+
+---
+title: TP - Gestion de livre - Partie métier (1/6)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie métier (1/6)
+
+- Application de gestion de liste de livres
+- Un livre est caractérisé par son titre et son auteur
+- Actions possibles :
+    - Ajouter un livre
+    - Lister tous les livres par ordre alphabétique
+
+---
+title: TP - Gestion de livre - Partie métier (2/6)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie métier (2/6)
+
+- En TDD, implémentation du domaine, c'est-à-dire toutes les règles métiers :
+    - Création du modèle : la classe `Book`
+    - Création du use case : une classe contenant les méthodes de création et de liste
+    - Création des ports : une interface qui écrira en base de données par la suite
+- Implémenter les différentes règles :
+    - Ajout d'un livre
+    - Un livre doit avoir un titre et un auteur non vide
+    - La récupération de tous les livres doit retourner la liste complète triée par ordre alphabétique selon le titre du
+      livre
+- Utiliser les outils et exemples présentés précédemment (Kotest, MockK)
+
+---
+title: TP - Gestion de livre - Partie métier (3/6)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie métier (3/6)
+
+- Définir des tests de propriétés
+- Exemple de propriété :
+    - La liste des livres retournés contient tous les éléments de la liste stockée
+
+---
+title: TP - Gestion de livre - Partie métier (4/6)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie métier (4/6)
+
+- Définir la CI/CD pour [GitHub Actions](https://github.com/marketplace/actions/gradle-build-action)
+- Définir les étapes suivantes :
+    - Build de l'application
+    - Lancement des tests
+    - Publier les résultats des tests dans la
+      pipeline ([plugin](https://github.com/EnricoMi/publish-unit-test-result-action))
+
+---
+title: TP - Gestion de livre - Partie métier (5/6)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie métier (5/6)
+
+- Mise en place des tests de couverture de code
+  avec [JaCoCo](https://docs.gradle.org/current/userguide/jacoco_plugin.html)
+- Ajouter l'étape dans la CI/CD
+  et [publier le rapport dans le pipeline](https://github.com/PavanMudigonda/jacoco-reporter)
+
+---
+title: TP - Gestion de livre - Partie métier (6/6)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie métier (6/6)
+
+- Mise en place des tests de mutation avec [PI Test](https://gradle-pitest-plugin.solidsoft.info/)
+- Ajout de l'étape dans la CI/CD
