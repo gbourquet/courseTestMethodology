@@ -1,15 +1,9 @@
 # Welcome to [Slidev](https://github.com/slidevjs/slidev)!
 
-To start the slide show:
+Local start
 
-- `npm install`
-- `npm run dev`
-- visit <http://localhost:3030>
+```bash
+npm run dev
+```
 
-Edit the [slides.md](./slides.md) to see the changes.
-
-Learn more about Slidev at the [documentation](https://sli.dev/).
-
-https://unocss.dev/interactive/?s=text-
-
-https://codepen.io/pamcy/pen/wQbEao
+Started on [Github Page](https://jicay.github.io/courseTestMethodology)
