@@ -60,49 +60,20 @@ The last comment block of each slide will be treated as slide notes. It will be 
 ---
 title: Objectif du cours
 level: 2
+layout: content-vertical-center
 ---
 
 # Objectif du cours
 
-<ul class="mosaic-main">
-<li class="mosaic-item"><mdi-head-cog class="text-7xl text-primary mx-2"/> Comprendre les usages des différents types de test</li>
-<li class="mosaic-item"><mdi-pencil class="text-7xl text-variant1 mx-2"/> Comprendre comment mettre en place des tests efficaces</li>
-<li class="mosaic-item"><mdi-check class="text-7xl text-variant2 mx-2" /> Écrire des tests en utilisant des frameworks adaptés</li>
-<li class="mosaic-item"><mdi-book-open-page-variant class="text-7xl text-variant3 mx-2"/> Apprendre à écrire du code testable et maintenable</li>
-<li class="mosaic-item"><mdi-magnify class="text-7xl text-variant4 mx-2"/> Savoir mettre en place les outils nécessaires à l'exécution des tests</li>
-</ul>
+::card-icon-text
 
-<style>
-    .mosaic-main {
-        display: grid !important;
-        grid-gap: 100px 20px;
-        list-style-type: none;
-        grid-template-columns: repeat(6, 1fr);
-    }
+- <mdi-head-cog class="mx-2"/> Comprendre les usages des différents types de test
+- <mdi-pencil class="mx-2"/> Comprendre comment mettre en place des tests efficaces
+- <mdi-check class="mx-2" /> Écrire des tests en utilisant des frameworks adaptés
+- <mdi-book-open-page-variant class="mx-2"/> Apprendre à écrire du code testable et maintenable
+- <mdi-magnify class="mx-2"/> Savoir mettre en place les outils nécessaires à l'exécution des tests
 
-    .mosaic-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        grid-column: span 2;
-        text-align: center;
-    }
-    .mosaic-main li:nth-last-child(1) {
-        grid-column: span 2;
-        grid-column-start: 4;
-        grid-column-end: 6;
-    }
-
-    .mosaic-main li:nth-last-child(2) {
-        grid-column: span 2;
-        grid-column-start: 2;
-        grid-column-end: 4;
-    }
-</style>
-
-<!--
-sqdsd
--->
+::
 
 ---
 title: Critères d'évaluation

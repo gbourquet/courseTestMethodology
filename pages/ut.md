@@ -117,9 +117,105 @@ layout: content-vertical-center
 
 # Test Driven Development
 
-::div{class="flex flex-justify-center"}
-![TDD](/tdd.png){class="test"}
-::
+<div style="position: relative;">
+<div id="error" class="circle">Écrire un test en erreur</div>
+<div id="ok" class="circle">Écrire le code pour faire passer le test</div>
+<div id="refactor" class="circle">Refactoriser le code</div>
+</div>
+
+<div id="error-ok" class="arrow"></div>
+<div id="ok-refactor" class="arrow"></div>
+<div id="refactor-error" class="arrow"></div>
+
+<style>
+.circle {
+  @apply text-white font-bold;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center; 
+}
+
+#error {
+  @apply bg-red-6;
+  margin: auto;
+}
+
+#ok {
+  @apply bg-green-7;
+  float: right;
+  position: relative;
+  bottom: -15%;
+  right: 22%;
+}
+
+#refactor {
+  @apply bg-blue-7;
+  float: left;
+  position: relative;
+  bottom: -15%;
+  left: 22%;
+}
+
+.arrow {
+  --queue-thickness: 20px;
+  --head-length: 30px;
+  width:100px;
+  height:80px;
+  display: flex;
+
+  &:before {
+    content: "";
+    background: currentColor;
+    width:100%;
+    clip-path: polygon(0 var(--queue-thickness),calc(100% - var(--head-length)) var(--queue-thickness),calc(100% - var(--head-length)) 0,100% 50%,calc(100% - var(--head-length)) 100%,calc(100% - var(--head-length)) calc(100% - var(--queue-thickness)),0 calc(100% - var(--queue-thickness)));
+  }
+}
+
+#error-ok {
+    position: absolute;
+    top: 46%;
+    left: 51%;
+    transform: rotate(55deg);
+    z-index: -1;
+    width: 124px;
+
+    &:before {
+      @apply bg-gradient-linear bg-gradient-from-red-6 bg-gradient-to-green-7 shape-[90deg];
+    }
+}
+
+#ok-refactor {
+    position: absolute;
+    top: 68%;
+    left: 42.5%;
+    transform: rotate(180deg);
+    z-index: -1;
+    width: 151px;
+
+    &:before {
+      @apply bg-gradient-linear bg-gradient-to-blue-7 bg-gradient-from-green-7 shape-[90deg];
+    }
+}
+
+#refactor-error {
+    position: absolute;
+    top: 48%;
+    right: 52%;
+    transform: rotate(-55deg);
+    z-index: -1;
+    width: 134px;
+
+    &:before {
+      @apply bg-gradient-linear bg-gradient-to-red-6 bg-gradient-from-blue-7 shape-[90deg];
+    }
+}
+</style>
 
 ---
 title: Comment écrire un test
@@ -237,6 +333,128 @@ dependencies {
 ```
 
 ---
+title: Structure du projet
+level: 2
+layout: content-vertical-center
+---
+
+# Structure du projet
+
+::tree-file
+
+- <mdi-folder-open /> src
+    - <mdi-folder-open /> main
+        - <mdi-folder-open /> kotlin
+            - <mdi-folder-open /> your
+              - <mdi-folder-open /> package
+                - <mdi-language-kotlin /> MyFile.kt
+        - <mdi-folder-open /> resources
+           - <simple-icons-yaml/> application.yml
+    - <mdi-folder-open /> test
+        - <mdi-folder-open /> kotlin
+            - <mdi-folder-open /> your
+              - <mdi-folder-open /> package
+                - <mdi-language-kotlin /> MyFileTest.kt
+- <mdi-git /> .gitignore
+- <simple-icons-gradle /> build.gradle.kts
+
+::
+
+---
+title: Quelques base de kotlin (1/3)
+level: 2
+layout: content-vertical-center
+---
+
+# Quelques bases de Kotlin (1/3)
+
+- Plus d'info sur la [documentation officielle](https://kotlinlang.org/docs/home.html)
+- Définir une fonction
+
+```kotlin
+fun sum(a: Int, b: Int): Int {
+    return a + b
+}
+
+// Ou
+fun sum(a: Int, b: Int) = a + b
+```
+
+- Définir une variable
+
+```kotlin
+val x: Int = 1 // Variable immutable
+val xNullable: Int? = null // Variable nullable
+var y: String = "Hello" // Variable mutable
+y += " World" // Valeur "Hello World"
+```
+
+---
+title: Quelques base de kotlin (2/3)
+level: 2
+layout: content-vertical-center
+---
+
+# Quelques bases de Kotlin (2/3)
+
+- Définir une classe & interface
+
+```kotlin
+interface Shape {
+    fun area(): Double
+}
+class Circle(private val radius: Double) : Shape {
+    override fun area() = Math.PI * radius * radius
+}
+data class Rectangle(val length: Double, val height: Double) : Shape {
+    override fun area() = length * height
+}
+```
+
+- Package & import
+
+```kotlin
+package your.package
+// correspond au chemin src/main/kotlin/your/package
+
+import kotlin.math.PI
+```
+
+---
+title: Quelques base de kotlin (3/3)
+level: 2
+layout: content-vertical-center
+---
+
+# Quelques bases de Kotlin (3/3)
+
+- Test et boucle
+
+```kotlin
+if (a > b) {
+    println("$a is greater than $b")
+} else {
+    println("$a is smaller than $b")
+}
+
+when (a > b) {
+    true -> println("$a is greater than $b")
+    false -> println("$a is smaller than $b")
+```
+
+```kotlin
+for (x in 1..5) {
+    println(x)
+}
+
+var index = 0
+while (index < 10) {
+    println(index)
+    index++
+}
+```
+
+---
 title: TP algorithme de César
 level: 2
 layout: content-vertical-center
@@ -305,16 +523,6 @@ layout: content-vertical-center
     - À chaque exécution du test, de nouvelles valeurs seront testées
 - Ne remplace pas les tests basés sur les exemples, mais les complète
 
-<style>
-  h1 + ul {
-    @apply: text-xl;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-</style>
-
 ---
 title: Property-based test exemple de propriétés
 level: 2
@@ -327,16 +535,6 @@ layout: content-vertical-center
     - Identité : `x + 0 = x` (0 neutre de l'addition)
     - Associativité : `(x + y) + z = x + (y + z)`
     - Commutativité : `x + y = y + x`
-
-<style>
-  h1 + ul {
-    @apply: text-xl;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-</style>
 
 ---
 title: Property-based test mise en place

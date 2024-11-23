@@ -755,12 +755,12 @@ layout: content-vertical-center
 ![Mutation test](/ut-project/mutation.png)
 
 ---
-title: TP - Gestion de livre - Partie métier (1/6)
+title: TP - Gestion de livre - Partie métier (1/7)
 level: 2
 layout: content-vertical-center
 ---
 
-# TP : Gestion de livre : Partie métier (1/6)
+# TP : Gestion de livre : Partie métier (1/7)
 
 - Application de gestion de liste de livres
 - Un livre est caractérisé par son titre et son auteur
@@ -769,12 +769,42 @@ layout: content-vertical-center
     - Lister tous les livres par ordre alphabétique
 
 ---
-title: TP - Gestion de livre - Partie métier (2/6)
+title: TP - Gestion de livre - Partie métier (2/7)
 level: 2
 layout: content-vertical-center
 ---
 
-# TP : Gestion de livre : Partie métier (2/6)
+# TP : Gestion de livre : Partie métier (2/7)
+
+- Ajouter les dossiers manquants de l'arborescence :
+
+::tree-file
+
+- <mdi-folder-open /> src
+    - <mdi-folder /> main
+        - <mdi-folder-open /> kotlin
+            - <mdi-folder-open /> your
+              - <mdi-folder-open /> package
+                - <mdi-folder-open /> **domain**
+                    - <mdi-folder /> **model**
+                    - <mdi-folder /> **usecase**
+                    - <mdi-folder /> **port**
+    - <mdi-folder-open /> test
+        - <mdi-folder-open /> kotlin
+            - <mdi-folder-open /> your
+              - <mdi-folder-open /> package
+                - <mdi-folder-open /> **domain**
+                    - <mdi-folder /> **usecase**
+
+::
+
+---
+title: TP - Gestion de livre - Partie métier (3/7)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie métier (3/7)
 
 - En TDD, implémentation du domaine, c'est-à-dire toutes les règles métiers :
     - Création du modèle : la classe `Book`
@@ -788,24 +818,24 @@ layout: content-vertical-center
 - Utiliser les outils et exemples présentés précédemment (Kotest, MockK)
 
 ---
-title: TP - Gestion de livre - Partie métier (3/6)
+title: TP - Gestion de livre - Partie métier (4/7)
 level: 2
 layout: content-vertical-center
 ---
 
-# TP : Gestion de livre : Partie métier (3/6)
+# TP : Gestion de livre : Partie métier (4/7)
 
 - Définir des tests de propriétés
 - Exemple de propriété :
     - La liste des livres retournés contient tous les éléments de la liste stockée
 
 ---
-title: TP - Gestion de livre - Partie métier (4/6)
+title: TP - Gestion de livre - Partie métier (5/7)
 level: 2
 layout: content-vertical-center
 ---
 
-# TP : Gestion de livre : Partie métier (4/6)
+# TP : Gestion de livre : Partie métier (5/7)
 
 - Définir la CI/CD pour [GitHub Actions](https://github.com/marketplace/actions/gradle-build-action)
 - Définir les étapes suivantes :
@@ -815,12 +845,12 @@ layout: content-vertical-center
       pipeline ([plugin](https://github.com/EnricoMi/publish-unit-test-result-action))
 
 ---
-title: TP - Gestion de livre - Partie métier (5/6)
+title: TP - Gestion de livre - Partie métier (6/7)
 level: 2
 layout: content-vertical-center
 ---
 
-# TP : Gestion de livre : Partie métier (5/6)
+# TP : Gestion de livre : Partie métier (6/7)
 
 - Mise en place des tests de couverture de code
   avec [JaCoCo](https://docs.gradle.org/current/userguide/jacoco_plugin.html)
@@ -828,12 +858,12 @@ layout: content-vertical-center
   et [publier le rapport dans le pipeline](https://github.com/PavanMudigonda/jacoco-reporter)
 
 ---
-title: TP - Gestion de livre - Partie métier (6/6)
+title: TP - Gestion de livre - Partie métier (7/7)
 level: 2
 layout: content-vertical-center
 ---
 
-# TP : Gestion de livre : Partie métier (6/6)
+# TP : Gestion de livre : Partie métier (7/7)
 
 - Mise en place des tests de mutation avec [PI Test](https://gradle-pitest-plugin.solidsoft.info/)
 - Ajout de l'étape dans la CI/CD

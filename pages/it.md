@@ -165,9 +165,9 @@ layout: content-vertical-center
 
 # Mocker les dépendances
 
-- Il faut mocr les dépendances des classes que l'on utilise
+- Il faut mocker les dépendances des classes que l'on utilise
 - Utilisation de la notion de mock de bean permettant de substituer l'implémentation d'un bean Spring par un mock.
-- Utilisation de la librairie `springmockk` pour mocker les beans avec l'annotion @MockkBean
+- Utilisation de la librairie `springmockk` pour mocker les beans avec l'annotation @MockkBean
 
 ---
 title: Créer un controller REST
@@ -330,8 +330,8 @@ layout: content-vertical-center
 - Deux choix principaux :
     - Utiliser une BDD embarquée (H2, HSQLDB)
     - Utiliser la BDD réelle et réussir à l'embarquer dans nos tests
-- 3 étapes pour chaque tests :
-    - Préparation de la BDD (création de données, ...)
+- 3 étapes pour chaque test :
+    - Préparation de la BDD (par exemple création de données)
     - Appel de la méthode à tester
     - Vérification du résultat et du contenu de la BDD après l'appel
 
@@ -396,12 +396,12 @@ layout: content-vertical-center
 # Liquibase
 
 - [Liquibase](https://docs.liquibase.com/home.html) est un outil de gestion de version et de migrations de base de
-  données
-- À chaque fois que l'application est démarée, on vérifie si la base de données est dans la bonne version, si non, on
-  exécute les scripts manquants
+  données.
+- À chaque fois que l'application est démarrée, on vérifie si la base de données est dans la bonne version, sinon, on
+  exécute les scripts manquants.
 - Fonctionne à partir d'un fichier listant plusieurs changelogs à appliquer. Chaque changelog est décrit dans un fichier
-  contenant toutes les actions à effectuer pour la migration
-- Outil en XML simple à mettre en place et compatible avec un très grand nombre de BDD
+  contenant toutes les actions à effectuer pour la migration.
+- Outil en XML simple à mettre en place et compatible avec un très grand nombre de BDD.
 
 ---
 title: Intégration de Liquibase (1/2)
@@ -417,7 +417,7 @@ layout: content-vertical-center
 implementation("org.liquibase:liquibase-core")
 ```
 
-- Ajout de la clé de configuration dans `application.yaml` pour indiquer le chemain du fichier de changelog parent
+- Ajout de la clé de configuration dans `application.yaml` pour indiquer le chemin du fichier de changelog parent
 
 ```yaml
 spring:
@@ -471,4 +471,387 @@ layout: content-vertical-center
         <addAutoIncrement tableName="demo" columnName="id"/>
     </changeSet>
 </databaseChangeLog>
+```
+
+---
+title: TP - Gestion de livre - Partie web (1/3)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie web (1/3)
+
+- Ajouter les dossiers manquants de l'arborescence :
+
+::tree-file
+
+- <mdi-folder-open /> src
+    - <mdi-folder-open /> main
+        - <mdi-folder-open /> kotlin
+            - <mdi-folder-open /> your
+                - <mdi-folder-open /> package
+                    - <mdi-folder/> domain
+                    - <mdi-folder-open /> **infrastructure**
+                        - <mdi-folder/> **application**
+                        - <mdi-folder-open /> **driving**
+                            - <mdi-folder-open /> **controller**
+                                - <mdi-folder/> **dto**
+    - <mdi-folder-open /> **testIntegration**
+        - <mdi-folder-open /> **kotlin**
+            - <mdi-folder-open /> **your**
+              - <mdi-folder /> **package**
+        - <mdi-folder /> **resources**
+
+::
+
+- Ajout de la déclaration de la suite de test dans `build.gradle.kts`
+
+---
+title: TP - Gestion de livre - Partie web (2/3)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie web (2/3)
+
+- Création de la partie driving de l'architecture :
+    - Création du DTO → nouvelle classe `BookDTO` (package `dto`)
+    - Création d'un controller → nouvelle classe `BookController` (package `controller`)
+        - Deux routes :
+            - `GET /books` : retourne la liste des livres
+            - `POST /books` : crée un livre
+- Appel du domaine :
+    - Déclaration des objets du domaine en tant que bean Spring (package `application`)
+
+```kotlin
+@Configuration
+class UseCasesConfiguration {
+    @Bean
+    fun myUseCase(dependancy: MyDependency): MyUseCase {
+        return MyUseCase(dependency)
+    }
+}
+```
+
+---
+title: TP - Gestion de livre - Partie web (3/3)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie web (3/3)
+
+- Création d'un test d'intégration dédié au controller :
+    - Utiliser [Spring Mockk](https://github.com/Ninja-Squad/springmockk) pour mocker et vérifier les appels vers le
+      domaine
+    - Utiliser [MockMVC](https://www.baeldung.com/kotlin/mockmvc-kotlin-dsl) pour appeler et vérifier les résultats de
+      nos routes
+      REST ([exemple d'intégration](https://www.baeldung.com/kotlin/kotest-spring-boot-test))
+- Tester :
+    - Cas nominaux (code de retour, contenu de la réponse, appels correctement effectués)
+    - Cas d'erreur sur le contrat d'entrée (erreur 400)
+    - Simuler une exception retournée par le domaine (erreur 4XX ou 5XX)
+- Ajouter les tests d'intégration à la couverture de code dans la configuration JaCoCo
+- Ajouter l'exécution des tests d'intégration dans la CI/CD
+
+---
+title: TP - Gestion de livre - Partie bdd (1/2)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie BDD (1/2)
+
+- Ajouter les dossiers manquants de l'arborescence :
+
+::tree-file
+
+- <mdi-folder-open /> src
+    - <mdi-folder-open /> main
+        - <mdi-folder-open /> kotlin
+            - <mdi-folder-open /> your
+                - <mdi-folder-open /> package
+                    - <mdi-folder/> domain
+                    - <mdi-folder-open /> infrastructure
+                        - <mdi-folder/> application
+                        - <mdi-folder /> driving
+                        - <mdi-folder-open /> **driven**
+                            - <mdi-folder/> **postgres**
+        - <mdi-folder-open /> resources
+            - <mdi-folder-open /> **db**
+                - <mdi-folder /> **changelogs**
+
+::
+
+- Création de la base de données :
+    - Ajout des dépendances `liquibase` et `postgresql`
+    - Création des changelogs [liquibase](https://docs.liquibase.com/change-types/create-table.html) (globlal et
+      création de la table)
+    - Ajout de la configuration liquibase dans `application.yaml`
+
+<style>
+.tree-file {
+  position: absolute;
+  right: 50px;
+  top: 156px;
+}
+</style>
+
+---
+title: TP - Gestion de livre - Partie bdd (2/2)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livre : Partie BDD (2/2)
+
+- Création de la partie Driving de l'architecture :
+    - Ajout d'un adapter implément le port de notre domaine -> nouvelle class `BookDAO` (package `postgres`)
+    - Ajout de la dépendance `org.springframework.boot:spring-boot-starter-jdbc`
+    - Ajout de la configuration de BDD dans `application.yaml`
+    - Utiliser `NamedParameterJdbcTemplate` pour écrire du SQL
+- Création d'un test d'intégration dédié à la DAO :
+    - Ajouter les dépendances `testcontainers`
+    - Créer le container postgresql
+    - Entre chaque test, nettoyer la BDD
+    - Récupérer une instance de BookDAO (`@Autowired` peut être utile)
+    - Effectuer les tests nécessaires
+
+---
+title: Tests de composants
+level: 2
+layout: content-vertical-center
+---
+
+# Tests de composants
+
+- Test automatisé écrit par le développeur, en étroite collaboration avec le PO/métier/QA
+- Valide l'ensemble de l'application dans son ensemble pour vérifier que toutes les parties de l'architecture
+  fonctionnent ensemble
+- Teste le fonctionnement global, pas les règles métier précises.
+
+---
+title: Écriture de tests de fonctionnels
+level: 2
+layout: content-vertical-center
+---
+
+# Écriture de tests de fonctionnels
+
+- Gherkin est un langage permettant de définir des tests en se basant sur le langage naturel
+- Structure du langage :
+    - Une ligne commence toujours par un mot-clé.
+    - Un mot-clé correspond à une étape du comportement utilisateur.
+- Les mots-clés que l'on va utiliser :
+    - `Given` : étape d'un test qui décrit l'état initial
+    - `When` : étape d'un test qui décrit laction faite par l'utilisateur
+    - `Then` : étape d'un test qui décrit le résultat attendu suite aux actions de l'utilisateur
+    - `And` : permet de rajouter une étape à une étape de test
+    - `Scenario`: description d'un cas d'utilisation, correspond au nom d'un test
+    - `Feature`: description globale d'une fonctionnalité, contient un ou plusieurs scénarios
+
+---
+title: Fichier Gherkin
+level: 2
+layout: content-vertical-center
+---
+
+# Fichier Gherkin
+
+```gherkin {all|1|3|4|5|6|7-10|all}
+Feature: store and get data
+
+  Scenario: the user creates two entries and retrieves both
+    Given the user creates the data "Toto"
+    And the user creates the data "Tata"
+    When the user get all data
+    Then the list should contains the following data
+      | data |
+      | Toto |
+      | Tata |
+```
+
+---
+title: Outils pour tests fonctionnels (1/2)
+level: 2
+layout: content-vertical-center
+---
+
+# Outils pour tests fonctionnels (1/2)
+
+- [Cucumber](https://cucumber.io/docs/guides/10-minute-tutorial/?lang=kotlin) est une bibliothèque permettant
+  d'implémenter les tests Gherkin
+- Constitué de deux types de fichiers :
+    - Un Cucumber Runner
+    - Un ou plusieurs fichiers définitions des étapes de scénarios (souvent suffixé `StepDefs`)
+
+::div{style="display: flex; justify-content: space-around;"}
+
+```kotlin
+@Given("the user creates the data {string}")
+fun createData(data: String) {
+    given()
+        .contentType(ContentType.JSON)
+        .and()
+        .body(
+            """
+                {
+                  "data": "$data"
+                }
+            """.trimIndent()
+        )
+        .`when`()
+        .post("/data")
+        .then()
+        .statusCode(201)
+}
+```
+
+```kotlin
+@When("the user gets all data")
+fun getAllData() {
+    lastDataResult = given()
+        .`when`()
+        .get("/data")
+        .then()
+        .statusCode(200)
+}
+```
+
+::
+
+---
+title: Outils pour tests fonctionnels (2/2)
+level: 2
+layout: content-vertical-center
+---
+
+# Outils pour tests fonctionnels (2/2)
+
+```kotlin
+@Then("the list should contains the following data")
+fun shouldHaveListOfData(payload: List<Map<String, Any>>) {
+    val expectedResponse = payload.joinToString(separator = ",", prefix = "[", postfix = "]") { line ->
+        """
+            ${
+            line.entries.joinToString(separator = ",", prefix = "{", postfix = "}") {
+                """"${it.key}": "${it.value}""""
+            }
+        }
+        """.trimIndent()
+
+    }
+    lastDataResult.extract().body().jsonPath().prettify() shouldBe JsonPath(expectedResponse).prettify()
+}
+```
+
+```kotlin
+@LocalServerPort
+private var port: Int? = 0
+
+@Before
+fun setup(scenario: Scenario) {
+    RestAssured.baseURI = "http://localhost:$port"
+    RestAssured.enableLoggingOfRequestAndResponseIfValidationFails()
+}
+```
+
+---
+title: TP - Gestion de livres - Tests de composants (1/3)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livres : Tests de composants (1/3)
+
+- Ajouter les dossiers manquants de l'arborescence :
+
+::tree-file
+
+- <mdi-folder-open /> src
+    - <mdi-folder /> main
+    - <mdi-folder /> testIntegration
+    - <mdi-folder-open /> **testComponent**
+        - <mdi-folder-open /> **kotlin**
+            - <mdi-folder-open /> **your**
+              - <mdi-folder /> **package**
+        - <mdi-folder-open /> **resources**
+            - <mdi-folder /> **features**
+            - <carbon-property-relationship /> **junit-platform.properties**
+
+::
+
+- Ajout de la déclaration de la suite de test dans `build.gradle.kts`
+
+---
+title: TP - Gestion de livres - Tests de composants (2/3)
+level: 2
+layout: content-vertical-center
+---
+
+# TP : Gestion de livres : Tests de composants (2/3)
+
+- Ajouter les dépendances :
+
+```kotlin
+testComponentImplementation("io.cucumber:cucumber-java:7.14.0")
+testComponentImplementation("io.cucumber:cucumber-spring:7.14.0")
+testComponentImplementation("io.cucumber:cucumber-junit:7.14.0")
+testComponentImplementation("io.cucumber:cucumber-junit-platform-engine:7.14.0")
+testComponentImplementation("io.rest-assured:rest-assured:5.3.2")
+testComponentImplementation("org.junit.platform:junit-platform-suite:1.10.0")
+testComponentImplementation("org.testcontainers:postgresql:1.19.1")
+testComponentImplementation("io.kotest:kotest-assertions-core:5.9.1") 
+```
+
+- Créer le fichier `book.feature` dans le dossier `features` dans lequel il faut définir les tests Gherkin
+- Dans le fichier `junit-platform.properties` :
+
+```properties
+cucumber.plugin=pretty,html:build/reports/cucumber.html,json:build/reports/cucumber.json
+```
+
+---
+title: TP - Gestion de livres - Tests de composants (3/3)
+level: 2
+layout: two-columns-header
+---
+
+# TP : Gestion de livres : Tests de composants (3/3)
+
+::left::
+
+- Créer les test Cucumber associés avec le fichier feature :
+    - Créer le fichier `BookStepDefs`
+    - Initier RestAssured
+    - Ajouter chacune des instructions Gherkin
+- Créer la classe pour lancer Cucumber
+- Ajouter les tests de composants à la CI/CD
+
+::right::
+
+```kotlin
+@Suite
+@IncludeEngines("cucumber")
+@SelectClasspathResource("features")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "your.package")
+@CucumberContextConfiguration
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class CucumberRunnerTest {
+    companion object {
+        private val container = PostgreSQLContainer<Nothing>("postgres:13-alpine")
+
+        init {
+            Startables.deepStart(container).join()
+        }
+
+        @JvmStatic
+        @DynamicPropertySource
+        fun overrideProps(registry: DynamicPropertyRegistry) {
+            registry.add("spring.datasource.username") { container.username }
+            registry.add("spring.datasource.password") { container.password }
+            registry.add("spring.datasource.url") { container.jdbcUrl }
+        }
+    }
+}
 ```
