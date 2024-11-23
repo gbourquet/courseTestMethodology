@@ -1,6 +1,6 @@
 ---
 layout: section
-title: Introduction aux tests logiciels
+title: <streamline-class-lesson-solid /> Introduction aux tests logiciels
 ---
 
 # Introduction aux tests logiciels

@@ -131,14 +131,14 @@ layout: content-vertical-center
         background-color: var(--slidev-theme-primary);
     }
     #test .description {
-        background-color: var(--slidev-theme-primaryLight);
+        background-color: rgba(var(--slidev-theme-primaryRGB), 0.3);
     }
 
     #tp .head {
-        background-color: var(--slidev-theme-secondary);
+        background-color: var(--slidev-theme-variant3);
     }
     #tp .description {
-        background-color: var(--slidev-theme-secondaryLight);
+        background-color: rgba(var(--slidev-theme-variant3RGB), 0.3);
     }
 </style>
 
@@ -151,6 +151,7 @@ layout: content-vertical-center
 # Plan du cours
 
 <Toc maxDepth="1"/>
+
 
 ---
 src: ./pages/introduction.md

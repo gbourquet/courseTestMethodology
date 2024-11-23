@@ -1,6 +1,6 @@
 ---
 layout: section
-title: Tests unitaires et bonnes pratiques
+title: <mdi-check-bold /> Tests unitaires et bonnes pratiques
 ---
 
 # Tests unitaires et bonnes pratiques

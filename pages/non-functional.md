@@ -1,6 +1,6 @@
 ---
 layout: section
-title: Tests non-fonctionnels
+title: <material-symbols-biotech /> Tests non-fonctionnels
 ---
 
 # Tests non-fonctionnels
