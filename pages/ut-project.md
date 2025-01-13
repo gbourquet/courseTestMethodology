@@ -27,8 +27,8 @@ layout: content-vertical-center
         <div class="port3 port">Port</div>
         <div class="port4 port">Port</div>
     </div>
-    <div class="adapter1 square">Adapteur</div>
-    <div class="adapter2 square">Adapteur</div>
+    <div class="adapter1 square">Adapter</div>
+    <div class="adapter2 square">Adapter</div>
     <div class="db">BDD</div>
     <div class="tierceApi">API</div>
     <Arrow x1="200" y1="228" x2="291" y2="248"/>
@@ -196,8 +196,8 @@ layout: content-vertical-center
     - Modèle = les objets métiers du domaine qui contiennent le maximum de règles métiers relatives à ces objets
     - Use case = le point d'entrée dans le domaine et l'ordonnanceur pour répondre au besoin métier (appels extérieurs
       entre autres)
-- Conteint uniquement ud code natif : pas de framework ni de bibliothèques externes
-- Communique avec l'extérieur via l'utilisation d'interfaces, appelée ports, qui sont implémentées hord du domaine
+- Contient uniquement ud code natif : pas de framework ni de bibliothèques externes
+- Communique avec l'extérieur via l'utilisation d'interfaces, appelées ports, qui sont implémentées hors du domaine
 - Développé en TDD, couvert au maximum par les tests unitaires
 
 ---
@@ -208,8 +208,8 @@ layout: content-vertical-center
 
 # Architecture Hexagonale : Driving
 
-- Partie de l'infrastructure qui s'interface avec les frameworkds et la bibliothques
-- Pilote et appelle le domaine : instancie les objets du modèle et appelle les méthode des use cases
+- Partie de l'infrastructure qui s'interface avec les frameworks et les bibliothèques
+- Pilote et appelle le domaine : instancie les objets du modèle et appelle les méthodes des use cases
 - Possède des Data Transfer Object (DTO) mappés en objets du domaine
 - Couvert par les tests d'intégration, plus rarement par les tests unitaires
 - Par exemple, les contrôleurs REST
@@ -617,7 +617,7 @@ layout: content-vertical-center
         - Exécutions de job de validation de qualité
 - [CD = Continuous Deployment]
     - Ensemble de commandes pour déployer l'application sur différents environnements
-        - Déploiments
+        - Déploiements
         - Exécutions des tests nécessitant un environnement réel
 
 ::
@@ -679,8 +679,8 @@ layout: content-vertical-center
 # Mutation tests
 
 - Change le code source (= mutations) et exécute les tests :
-    - Si les tests passent toujours, on parle de mutant survivant -> tests insuffisants
-    - Si les tests échouent, on parle de mutant tué -> tests suffisants
+    - Si les tests passent toujours, on parle de mutant survivant ⇾ tests insuffisants
+    - Si les tests échouent, on parle de mutant tué ⇾ tests suffisants
 - De nombreuses mutations possibles :
     - Modifier la valeur d'une constante
     - Remplacer un opérateur (changer un > en < ou >= par exemple)
@@ -841,7 +841,7 @@ layout: content-vertical-center
 - Définir les étapes suivantes :
     - Build de l'application
     - Lancement des tests
-    - Publier les résultats des tests dans la
+    - Publier les résultats des tests dans le
       pipeline ([plugin](https://github.com/EnricoMi/publish-unit-test-result-action))
 
 ---

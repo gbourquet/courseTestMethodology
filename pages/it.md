@@ -82,6 +82,7 @@ testIntegrationImplementation("io.mockk:mockk:1.13.8")
 testIntegrationImplementation("io.kotest:kotest-assertions-core:5.9.1")
 testIntegrationImplementation("io.kotest:kotest-runner-junit5:5.9.1")
 testIntegrationImplementation("com.ninja-squad:springmockk:4.0.2")
+testIntegrationImplementation("io.kotest.extensions:kotest-extensions-spring:1.3.0")
 testIntegrationImplementation("org.springframework.boot:spring-boot-starter-test") {
     exclude(module = "mockito-core")
 }
@@ -533,6 +534,10 @@ class UseCasesConfiguration {
 }
 ```
 
+<!--
+Déplacer le @Configuration dans la partie DB
+-->
+
 ---
 title: TP - Gestion de livre - Partie web (3/3)
 level: 2
@@ -585,7 +590,7 @@ layout: content-vertical-center
 
 - Création de la base de données :
     - Ajout des dépendances `liquibase` et `postgresql`
-    - Création des changelogs [liquibase](https://docs.liquibase.com/change-types/create-table.html) (globlal et
+    - Création des changelogs [liquibase](https://docs.liquibase.com/change-types/create-table.html) (global et
       création de la table)
     - Ajout de la configuration liquibase dans `application.yaml`
 
@@ -606,7 +611,7 @@ layout: content-vertical-center
 # TP : Gestion de livre : Partie BDD (2/2)
 
 - Création de la partie Driving de l'architecture :
-    - Ajout d'un adapter implément le port de notre domaine -> nouvelle class `BookDAO` (package `postgres`)
+    - Ajout d'un adapter implément le port de notre domaine ⇾ nouvelle class `BookDAO` (package `postgres`)
     - Ajout de la dépendance `org.springframework.boot:spring-boot-starter-jdbc`
     - Ajout de la configuration de BDD dans `application.yaml`
     - Utiliser `NamedParameterJdbcTemplate` pour écrire du SQL
@@ -644,7 +649,7 @@ layout: content-vertical-center
     - Un mot-clé correspond à une étape du comportement utilisateur.
 - Les mots-clés que l'on va utiliser :
     - `Given` : étape d'un test qui décrit l'état initial
-    - `When` : étape d'un test qui décrit laction faite par l'utilisateur
+    - `When` : étape d'un test qui décrit l'action faite par l'utilisateur
     - `Then` : étape d'un test qui décrit le résultat attendu suite aux actions de l'utilisateur
     - `And` : permet de rajouter une étape à une étape de test
     - `Scenario`: description d'un cas d'utilisation, correspond au nom d'un test
@@ -821,7 +826,7 @@ layout: two-columns-header
 
 ::left::
 
-- Créer les test Cucumber associés avec le fichier feature :
+- Créer les tests Cucumber associés avec le fichier feature :
     - Créer le fichier `BookStepDefs`
     - Initier RestAssured
     - Ajouter chacune des instructions Gherkin

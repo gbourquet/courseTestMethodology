@@ -115,7 +115,7 @@ layout: content-vertical-center
 # TP : Mise en place de Detekt
 
 - Ajouter le plugin et les tâches dans le fichier gradle
-- Ajouter le configuration dans `config/detekt.yml`
+- Ajouter la configuration dans `config/detekt.yml`
 - Ajouter l'exécution de detekt dans la CI/CD
 
 ---
@@ -139,9 +139,9 @@ layout: content-vertical-center
 
 ::card-icon-text
 
-- <mdi-weight-lifter /> [Test de charge] simule un nombre d'utilisateurs prédéfinis afin de vérifier que l'infrastructure est suffisante
-- <eos-icons-performance /> [Test de performance] simule un nombre d'utilisateurs prédéfinis afin de mesurer les temps de réponse
-- <material-symbols-bomb-rounded /> [Test de stress] simule un nombre d'utilisateur supérieur à la capacité de l'application pour vérifier son comportement
+- <mdi-weight-lifter /> [Test de charge] simule un nombre d'utilisateurs prédéfini afin de vérifier que l'infrastructure est suffisante
+- <eos-icons-performance /> [Test de performance] simule un nombre d'utilisateurs prédéfini afin de mesurer les temps de réponse
+- <material-symbols-bomb-rounded /> [Test de stress] simule un nombre d'utilisateurs supérieur à la capacité de l'application pour vérifier son comportement
 
 ::
 

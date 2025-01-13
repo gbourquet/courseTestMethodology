@@ -19,7 +19,7 @@ layout: content-vertical-center
   manière isolée.
 - L'objectif est de valider que cette partie du code fonctionne correctement en testant le maximum de scénarii
   possibles.
-- Ecrits par les développeurs pour garantir la qualité du code.
+- Écrit par les développeurs pour garantir la qualité du code.
 
 ::
 
@@ -42,9 +42,9 @@ level: 2
     - Doit toujours donner le même résultat à chaque exécution
 - <mdi-bug-check /> <span>**Self-validating** (Auto-validant)</span>
     - Les tests doivent explicitement être en succès ou en erreur, ne doit pas être vérifié manuellement
-- <mdi-alarm-check /> <span>**Thourough/Timely** (Approfondi/Opportun)</span>
+- <mdi-alarm-check /> <span>**Thorough/Timely** (Approfondi/Opportun)</span>
     - Tester tous les cas possibles
-    - Ecrire les tests avant/pendant le code
+    - Écrire les tests avant/pendant le code
 
 ::
 
@@ -80,13 +80,13 @@ layout: two-columns-header
 
 ::process-list
 
-- **Arrange: Initialisation**
+- **Arrange : Initialisation**
     - Créer les variables nécessaires
     - Initialiser tout ce qui est nécessaire
-- **Act: Action**
+- **Act : Action**
     - Effectuer le test (appeler la fonction, cliquer sur le bouton, ...)
     - Récupérer le résultat du test
-- **Assert: Vérification**
+- **Assert : Vérification**
     - Comparer le résultat du test avec ce qui était attendu
     - En cas d'échec lors de cette phase, le test est KO
 
@@ -265,7 +265,7 @@ layout: content-vertical-center
 - Doivent être exécutés régulièrement
 - Il n'existe pas "d'erreur normale"
 
-- L'IDE permet d'éxécuter les tests
+- L'IDE permet d'exécuter les tests
 - Exécution en ligne de commande en utilisant Gradle `./gradlew test`
 
 ![Gradle](/ut/gradle.png){style="height: 30%;position: absolute;right: 10%;bottom:10%"}
@@ -361,7 +361,7 @@ layout: content-vertical-center
 ::
 
 ---
-title: Quelques base de kotlin (1/3)
+title: Quelques bases de kotlin (1/3)
 level: 2
 layout: content-vertical-center
 ---
@@ -390,7 +390,7 @@ y += " World" // Valeur "Hello World"
 ```
 
 ---
-title: Quelques base de kotlin (2/3)
+title: Quelques bases de kotlin (2/3)
 level: 2
 layout: content-vertical-center
 ---
@@ -421,7 +421,7 @@ import kotlin.math.PI
 ```
 
 ---
-title: Quelques base de kotlin (3/3)
+title: Quelques bases de kotlin (3/3)
 level: 2
 layout: content-vertical-center
 ---
@@ -440,6 +440,7 @@ if (a > b) {
 when (a > b) {
     true -> println("$a is greater than $b")
     false -> println("$a is smaller than $b")
+}
 ```
 
 ```kotlin
@@ -519,7 +520,7 @@ layout: content-vertical-center
 
 - Un test classique teste des exemples
 - Teste des propriétés toujours valables, aussi appelées invariants
-    - Propriété définies sur un ensemble de données possibles (entier positif, liste de 3 éléments, ...)
+    - Propriétés définies sur un ensemble de données possibles (entier positif, liste de 3 éléments, ...)
     - À chaque exécution du test, de nouvelles valeurs seront testées
 - Ne remplace pas les tests basés sur les exemples, mais les complète
 
