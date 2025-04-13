@@ -51,7 +51,7 @@ hideInToc: true
 
 # TP - Méthodologie de tests et tests unitaires
 
-A rendre le 21 Janvier 2025
+A rendre le 12 Mai 2025
 
 ---
 layout: content-vertical-center
@@ -71,7 +71,7 @@ layout: content-vertical-center
 
 - Archive du code source du back (nom-prenom.zip) ou github (attention aux droits d'accès)
 - Pas de fichier .rar
-- A envoyer par mail avant le 21/01/25 : jeanclement.sabourin@ynov.com
+- A envoyer par mail avant le 12/05/25 : jeanclement.sabourin@ynov.com
 
 ---
 layout: content-vertical-center
@@ -86,7 +86,7 @@ layout: content-vertical-center
     - Une fonction dans le port et l'adapter pour écrire cette information.
 - Modifier le endpoint REST de récupération de liste pour indiquer l'information sur la disponibilité du livre.
 - Implémenter les règles suivantes :
-    - Un livre déjà réservé ne peux pas être réservé à nouveau
+    - Un livre déjà réservé ne peut pas être réservé à nouveau
 
 ---
 layout: content-vertical-center

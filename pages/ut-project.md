@@ -336,7 +336,7 @@ layout: content-vertical-center
 
 # Test double : Fake
 
-- Implémentation simplifiée de la dépendance, utilisée pour simuler un comportement plus complexe que le stub
+- Implémentation simplifiée de la dépendance, simulation d'un comportement plus complexe que le stub
 
 ::div{style="display: flex; justify-content: space-around; align-items: center;"}
 
