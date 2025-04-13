@@ -677,12 +677,12 @@ Feature: store and get data
 ```
 
 ---
-title: Outils pour tests fonctionnels (1/2)
+title: Outils pour tests fonctionnels (1/4)
 level: 2
 layout: content-vertical-center
 ---
 
-# Outils pour tests fonctionnels (1/2)
+# Outils pour tests fonctionnels (1/4)
 
 - [Cucumber](https://cucumber.io/docs/guides/10-minute-tutorial/?lang=kotlin) est une bibliothèque permettant
   d'implémenter les tests Gherkin
@@ -690,7 +690,13 @@ layout: content-vertical-center
     - Un Cucumber Runner
     - Un ou plusieurs fichiers définitions des étapes de scénarios (souvent suffixé `StepDefs`)
 
-::div{style="display: flex; justify-content: space-around;"}
+---
+title: Outils pour tests fonctionnels (2/4)
+level: 2
+layout: content-vertical-center
+---
+
+# Outils pour tests fonctionnels (2/4)
 
 ```kotlin
 @Given("the user creates the data {string}")
@@ -712,6 +718,14 @@ fun createData(data: String) {
 }
 ```
 
+---
+title: Outils pour tests fonctionnels (3/4)
+level: 2
+layout: content-vertical-center
+---
+
+# Outils pour tests fonctionnels (3/4)
+
 ```kotlin
 @When("the user gets all data")
 fun getAllData() {
@@ -723,15 +737,13 @@ fun getAllData() {
 }
 ```
 
-::
-
 ---
-title: Outils pour tests fonctionnels (2/2)
+title: Outils pour tests fonctionnels (4/4)
 level: 2
 layout: content-vertical-center
 ---
 
-# Outils pour tests fonctionnels (2/2)
+# Outils pour tests fonctionnels (4/4)
 
 ```kotlin
 @Then("the list should contains the following data")

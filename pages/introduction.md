@@ -31,28 +31,6 @@ layout: content-vertical-center
 ::
 
 ---
-title: Conséquences des bugs non détectés
-level: 2
-layout: content-vertical-center
----
-
-# Conséquences des bugs non détectés
-
-::header-framed-list
-
-- [Cas historiques de bugs catastrophiques]
-    - Bug de l'an 2000 (Y2K) - Perturbations dues aux années à deux chiffres.
-    - Fusée Ariane 5 (1996) - Surcharge d'entiers, explosion en vol.
-- [Pertes financières et de réputation]
-    - Exemple : Faille de sécurité Heartbleed (2014) - Vol de données, impact sur la réputation.
-    - Impact sur la confiance des utilisateurs et les parts de marché.
-- [Importance de la détection précoce]
-    - Détecter et corriger les bugs tôt réduit les coûts de correction.
-    - Éviter les coûts associés aux rappels, aux remplacements et aux litiges
-
-::
-
----
 title: Avantages des tests
 level: 2
 layout: content-vertical-center

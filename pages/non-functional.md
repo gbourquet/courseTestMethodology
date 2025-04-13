@@ -169,6 +169,8 @@ layout: content-vertical-center
 ![JMeter](/non-functional/jmeter.png){style="height: 13%;position: absolute;right: 15%;bottom:13%"}
 ::
 
+<!-- mettre à jour la version --> 
+
 ---
 title: K6
 level: 2
