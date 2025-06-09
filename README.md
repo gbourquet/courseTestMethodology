@@ -6,4 +6,4 @@ Local start
 npm run dev
 ```
 
-Started on [Github Page](https://jicay.github.io/courseTestMethodology)
+Started on [Github Page](https://gbourquet.github.io/courseTestMethodology)
