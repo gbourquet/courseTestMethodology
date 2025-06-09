@@ -95,6 +95,6 @@ layout: content-vertical-center
 
 # TP : Gestion de livres : Tests end-to-end
 
-- Récupérer le projet Angular sur [GitHub](https://github.com/Jicay/defaultBookManagementFront)
+- Récupérer le projet Angular sur [GitHub](https://github.com/gbourquet/defaultBookManagementFront)
 - En utilisant Cypress, ajouter un test pour créer un livre puis constater qu'il est bien ajouté
 - Ajouter un test pour vérifier qu'il n'est pas possible de créer un livre avec des champs vides
