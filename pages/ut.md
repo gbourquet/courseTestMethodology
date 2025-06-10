@@ -48,6 +48,39 @@ level: 2
 
 ::
 
+<!--
+🧪 F – Fast (Rapides)
+Les tests doivent s'exécuter très rapidement.
+
+Pourquoi ? Pour qu'ils puissent être lancés souvent, idéalement à chaque modification du code.
+
+Un test unitaire lent est souvent le signe qu'il dépend de composants externes (base de données, réseau...).
+
+🔒 I – Independent / Isolated (Indépendants / Isolés)
+Chaque test doit être exécutable seul, dans n'importe quel ordre, sans dépendre des autres.
+
+Cela facilite le débogage et évite les faux positifs.
+
+Un test qui échoue parce qu’un autre a échoué avant est un anti-pattern.
+
+✅ R – Repeatable / Reliable (Répétables / Fiables)
+Les tests doivent donner le même résultat à chaque exécution, quelles que soient les circonstances (machine, heure, etc.).
+
+Éviter les tests qui dépendent du hasard, de l'heure système, de la connexion réseau, etc.
+
+Sinon, on parle de tests flakys.
+
+🎯 S – Self-validating (Auto-validants)
+Un test doit échouer ou réussir sans intervention humaine.
+
+Il ne doit pas se contenter d'afficher un résultat à lire à la main, mais contenir des assertions claires (assertEqual, assertTrue, etc.).
+
+📦 T – Timely (Écrits au bon moment)
+Les tests doivent être écrits au bon moment, idéalement avant ou pendant l’écriture du code (Test-Driven Development, TDD).
+
+Éviter d’écrire les tests après coup, car cela augmente le risque de tordre les tests pour faire passer le code existant.
+-->
+
 ---
 title: Quoi tester ?
 level: 2
@@ -67,6 +100,24 @@ layout: content-vertical-center
     - Situations improbables, souvent liés à des outils extérieurs
 
 ::
+
+<!--
+✅ Cas nominal (ou cas standard)
+Définition : C’est le cas classique, attendu, celui où tout se passe bien avec des valeurs typiques.
+
+But : Vérifier que le programme fonctionne dans des conditions normales d'utilisation.
+
+🟡 Cas aux limites (ou cas limite / borderline)
+Définition : Ce sont les cas où les valeurs sont à l’extrême des intervalles acceptés, sans être incorrectes.
+
+But : Vérifier que le système gère correctement les bords de validité.
+
+❌ Cas pathologique (ou cas extrême / invalide)
+Définition : Ce sont des cas anormaux, erronés, voire non prévus, qui mettent le système à l’épreuve.
+
+But : Tester la résilience du système, sa gestion des erreurs ou comportements inattendus.
+Ces cas sont essentiels pour la robustesse de l’application, même s’ils ne sont pas censés arriver "en production".
+-->
 
 ---
 title: Structure d'un test (AAA)
@@ -108,6 +159,22 @@ test("add numbers 1 and 2 should equals to 3") {
     res shouldBe 3
 }
 ```
+
+<!--
+C’est la structure classique des tests unitaires, utilisée dans la plupart des langages de programmation.
+
+🔹 Décomposition :
+Arrange : on prépare le contexte, les objets, les entrées.
+
+Act : on exécute l’action qu’on veut tester.
+
+Assert : on vérifie le résultat attendu.
+
+🧠 Objectif :
+Clarté et lisibilité du test.
+
+Simple et direct, pragmatique et précis, adapté aux tests unitaires fonctionnels, pour le développeur
+-->
 
 ---
 title: Test Driven Development
@@ -216,6 +283,29 @@ layout: content-vertical-center
     }
 }
 </style>
+
+<!--
+🔴 Red :
+Écris un test qui échoue (car la fonctionnalité n’existe pas encore).
+👉 Cela force à définir clairement le comportement attendu avant d’écrire le code.
+
+🟢 Green :
+Écris le code minimum nécessaire pour faire passer le test.
+👉 Même si le code est moche ou naïf, l’objectif est que le test passe.
+
+🔵 Refactor :
+Nettoie et améliore le code (et les tests si besoin), sans casser les tests.
+👉 Tu assures ainsi une qualité progressive du code avec des tests comme filet de sécurité.
+
+🧠 Objectifs principaux du TDD
+Fiabilité : tout comportement est vérifié dès le départ.
+
+Design guidé par l’usage : tu écris le code en partant de son interface (via les tests).
+
+Feedback rapide : tu sais tout de suite si ton code fait ce qu’il doit faire.
+
+Simplicité : tu n’écris que le code nécessaire pour satisfaire les besoins réels.
+-->
 
 ---
 title: Comment écrire un test
